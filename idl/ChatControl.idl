@@ -1,13 +1,18 @@
+// ChatSystem.idl
+
 module ChatSystem {
-    // Interface de gestion des salons et utilisateurs
     interface ChatControl {
-        // Crée un salon et enregistre l'utilisateur
+        // Authentification et Inscription
+        boolean authentifier(in string pseudo, in string password);
+        boolean inscrire(in string pseudo, in string password);
+
+        // Gestion des Salons
         void creerSalon(in string nomSalon, in string utilisateur);
-
-        // Retourne l'IP:Port du socket TCP du salon pour la connexion directe
         string rejoindreSalon(in string nomSalon, in string utilisateur);
-
-        string listerSalons();
         void quitterSalon(in string nomSalon, in string utilisateur);
+        string listerSalons();
+
+        // Nouvelle méthode pour l'historique
+        string getSalonHistory(in string nomSalon);
     };
 };
