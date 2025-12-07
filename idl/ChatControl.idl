@@ -1,0 +1,13 @@
+module ChatSystem {
+    // Interface de gestion des salons et utilisateurs
+    interface ChatControl {
+        // Crée un salon et enregistre l'utilisateur
+        void creerSalon(in string nomSalon, in string utilisateur);
+
+        // Retourne l'IP:Port du socket TCP du salon pour la connexion directe
+        string rejoindreSalon(in string nomSalon, in string utilisateur);
+
+        string listerSalons();
+        void quitterSalon(in string nomSalon, in string utilisateur);
+    };
+};
